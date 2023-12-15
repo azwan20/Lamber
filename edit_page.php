@@ -1,13 +1,6 @@
 <?php
 include 'koneksi.php';
 
-session_start();
-
-if (!isset($_SESSION['login'])) {
-    header("Location: login.php");
-    exit;
-}
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['id'], $_POST['tanggal'], $_POST['jenis'], $_POST['satuan'], $_POST['debet'], $_POST['kredit'], $_POST['saldo'])) {
         $id = $_POST['id'];
@@ -59,6 +52,14 @@ if (isset($_GET['id'])) {
 ?>
 
 <?php include 'head.php' ?>
+<?php 
+
+if (!isset($_SESSION['login'])) {
+    header("Location: login.php");
+    exit;
+}
+
+?>
 <article>
     <div class="fill_data">
         <span class="d-flex">
