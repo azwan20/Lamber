@@ -2,8 +2,6 @@
 <?php 
 include 'koneksi.php';
 session_start();
-
-
 $idLogin = $_SESSION['id'];
 
 $sqlHead = "SELECT * FROM registrasi WHERE id = '$idLogin'";

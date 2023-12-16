@@ -46,12 +46,7 @@ if ($result->num_rows > 0) {
 
 
 <?php include 'head.php' ?>
-<?php
-if (!isset($_SESSION['login'])) {
-    header("Location: login.php");
-    exit;
-}
-?>
+
 <article>
     <div class="dashboard">
         <div class="h1">

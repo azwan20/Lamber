@@ -1,11 +1,8 @@
 <?php
 
 include 'koneksi.php';
-if (session_start()){
-    true;
-} else {
-    false;
-};
+
+session_start();
 
 if (isset($_SESSION['login'])) {
     header("Location: dashboard.php");
@@ -27,11 +24,7 @@ if (isset($_POST["submit"])) {
 
         $_SESSION["login"] = true;
         $_SESSION["id"] = $row['id'];
-?>
-        <script>
-            location.reload()
-        </script>
-<?php
+        header("Location: dashboard.php");
         exit;
     } else {
         $error = true;
@@ -71,7 +64,7 @@ if (isset($_POST["submit"])) {
                         <span class="d-flex">
                             <input type="text" placeholder="Username" name="username"> <br>
                             <input type="password" placeholder="Password" name="password">
-                            <p>belum punya akun? <a>klik di sini</a></p>
+                            <p>belum punya akun? <a href="registrasi.php">klik di sini</a></p>
                         </span>
                         <span class="d-flex">
                             <button type="submit" name="submit" style="color: #000;">LOGIN</button>
